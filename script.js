@@ -89,6 +89,7 @@ const accounts = [account1, account2, account3, account4];
 
 //********************************************************
 // Elements
+const nav = document.querySelector("nav");
 const labelWelcome = document.querySelector(".welcome");
 const labelDate = document.querySelector(".date");
 const labelBalance = document.querySelector(".balance__value");
@@ -105,6 +106,7 @@ const btnTransfer = document.querySelector(".form__btn--transfer");
 const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
+const btnLogout = document.querySelector(".logout__btn");
 
 const inputLoginUsername = document.querySelector(".login__input--user");
 const inputLoginPin = document.querySelector(".login__input--pin");
@@ -136,7 +138,7 @@ const formatCur = function (value, locale, currency) {
     currency: currency,
   }).format(value);
 };
-
+// Display Movementas
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = "";
 
@@ -228,6 +230,7 @@ const startLogOutTimer = function () {
       clearInterval(timer);
       labelWelcome.textContent = `Log in to get started`;
       containerApp.style.opacity = 0;
+      nav.style.display = "flex";
     }
     //Decrease time
     time--;
@@ -258,6 +261,7 @@ btnLogin.addEventListener("click", function (e) {
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(" ")[0]
     }`;
+    document.querySelector("nav").style.display = "none";
     containerApp.style.opacity = 300;
 
     // Create current date and time
@@ -377,4 +381,9 @@ btnSort.addEventListener("click", function (e) {
   sorted = !sorted;
 });
 
+nav.style.display = "flex";
+btnLogout.addEventListener("click", () => {
+  containerApp.style.opacity = 0;
+  nav.style.display = "flex";
+});
 //******************************************** */
