@@ -60,7 +60,7 @@ nav {
   color: #bbb;
 }
 
-.login__btn {
+.login__btn, .logout__btn {
   border: none;
   background: none;
   font-size: 2.2rem;
@@ -68,11 +68,16 @@ nav {
   cursor: pointer;
   transition: all 0.3s;
 }
+.logout__btn{
+  font-size: 1.3rem;
+  color:#e52a5a;}
 
 .login__btn:hover,
 .login__btn:focus,
 .btn--sort:hover,
-.btn--sort:focus {
+.btn--sort:focus,
+.logout__btn:hover,
+.logout__btn:focus {
   outline: none;
   color: #777;
 }
